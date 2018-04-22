@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FarmaciaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_clientes">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tx_nome" Type="varchar" MaxLength="100" />
+    <Property Name="in_cpf" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="email" Type="varchar" MaxLength="150" />
+    <Property Name="telefone" Type="varchar" MaxLength="30" />
+    <Property Name="endereco" Type="varchar" MaxLength="100" />
+    <Property Name="cep" Type="varchar" MaxLength="50" />
+    <Property Name="bairro" Type="varchar" MaxLength="100" />
+    <Property Name="cidade" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_produtos">
+    <Key>
+      <PropertyRef Name="id_produto" />
+    </Key>
+    <Property Name="id_produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tx_nome_produto" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="fl_cronico" Type="bit" />
+    <Property Name="fl_alergenicos" Type="bit" />
+    <Property Name="img_produto" Type="varbinary(max)" />
+    <Property Name="valor_produto" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="porcentagem_desconto_recorrente" Type="int" />
+    <Property Name="in_quantidade" Type="int" />
+    <Property Name="porcentagem_desconto_cronico" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_produtos_vendidos">
+    <Key>
+      <PropertyRef Name="id_produto_vendido" />
+    </Key>
+    <Property Name="id_produto_vendido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_produto" Type="int" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="data_venda" Type="datetime" />
+    <Property Name="in_quantidade_vendido" Type="int" />
+    <Property Name="valor_total" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario_perfil" Type="int" />
+    <Property Name="tx_nome" Type="varchar" MaxLength="500" />
+    <Property Name="tx_cpf" Type="varchar" MaxLength="50" />
+    <Property Name="tx_login" Type="varchar" MaxLength="100" />
+    <Property Name="tx_senha" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_usuario_perfil">
+    <Key>
+      <PropertyRef Name="id_usuario_perfil" />
+    </Key>
+    <Property Name="id_usuario_perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tx_tipo" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__produtos___id_cl__5070F446">
+    <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="0..1" />
+    <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_clientes">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="tb_produtos_vendidos">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__produtos___id_pr__4F7CD00D">
+    <End Role="tb_produtos" Type="Self.tb_produtos" Multiplicity="0..1" />
+    <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_produtos">
+        <PropertyRef Name="id_produto" />
+      </Principal>
+      <Dependent Role="tb_produtos_vendidos">
+        <PropertyRef Name="id_produto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_usuari__id_us__4BAC3F29">
+    <End Role="tb_usuario_perfil" Type="Self.tb_usuario_perfil" Multiplicity="0..1" />
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario_perfil">
+        <PropertyRef Name="id_usuario_perfil" />
+      </Principal>
+      <Dependent Role="tb_usuario">
+        <PropertyRef Name="id_usuario_perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FarmaciaModelStoreContainer">
+    <EntitySet Name="tb_clientes" EntityType="Self.tb_clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_produtos" EntityType="Self.tb_produtos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_produtos_vendidos" EntityType="Self.tb_produtos_vendidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_usuario_perfil" EntityType="Self.tb_usuario_perfil" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__produtos___id_cl__5070F446" Association="Self.FK__produtos___id_cl__5070F446">
+      <End Role="tb_clientes" EntitySet="tb_clientes" />
+      <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__produtos___id_pr__4F7CD00D" Association="Self.FK__produtos___id_pr__4F7CD00D">
+      <End Role="tb_produtos" EntitySet="tb_produtos" />
+      <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_usuari__id_us__4BAC3F29" Association="Self.FK__tb_usuari__id_us__4BAC3F29">
+      <End Role="tb_usuario_perfil" EntitySet="tb_usuario_perfil" />
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FarmaciaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_clientes">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tx_nome" Type="varchar" MaxLength="100" />
+          <Property Name="in_cpf" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="email" Type="varchar" MaxLength="150" />
+          <Property Name="telefone" Type="varchar" MaxLength="30" />
+          <Property Name="endereco" Type="varchar" MaxLength="100" />
+          <Property Name="cep" Type="varchar" MaxLength="50" />
+          <Property Name="bairro" Type="varchar" MaxLength="100" />
+          <Property Name="cidade" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tb_produtos">
+          <Key>
+            <PropertyRef Name="id_produto" />
+          </Key>
+          <Property Name="id_produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tx_nome_produto" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="fl_cronico" Type="bit" />
+          <Property Name="fl_alergenicos" Type="bit" />
+          <Property Name="img_produto" Type="varbinary(max)" />
+          <Property Name="valor_produto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="porcentagem_desconto_recorrente" Type="int" />
+          <Property Name="in_quantidade" Type="int" />
+          <Property Name="porcentagem_desconto_cronico" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_produtos_vendidos">
+          <Key>
+            <PropertyRef Name="id_produto_vendido" />
+          </Key>
+          <Property Name="id_produto_vendido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_produto" Type="int" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="data_venda" Type="datetime" />
+          <Property Name="in_quantidade_vendido" Type="int" />
+          <Property Name="valor_total" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario_perfil" Type="int" />
+          <Property Name="tx_nome" Type="varchar" MaxLength="500" />
+          <Property Name="tx_cpf" Type="varchar" MaxLength="50" />
+          <Property Name="tx_login" Type="varchar" MaxLength="100" />
+          <Property Name="tx_senha" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tb_usuario_perfil">
+          <Key>
+            <PropertyRef Name="id_usuario_perfil" />
+          </Key>
+          <Property Name="id_usuario_perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tx_tipo" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK__produtos___id_cl__5070F446">
+          <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="0..1" />
+          <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_clientes">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="tb_produtos_vendidos">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__produtos___id_pr__4F7CD00D">
+          <End Role="tb_produtos" Type="Self.tb_produtos" Multiplicity="0..1" />
+          <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produtos">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_produtos_vendidos">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_usuari__id_us__4BAC3F29">
+          <End Role="tb_usuario_perfil" Type="Self.tb_usuario_perfil" Multiplicity="0..1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario_perfil">
+              <PropertyRef Name="id_usuario_perfil" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="id_usuario_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FarmaciaModelStoreContainer">
+          <EntitySet Name="tb_clientes" EntityType="Self.tb_clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_produtos" EntityType="Self.tb_produtos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_produtos_vendidos" EntityType="Self.tb_produtos_vendidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_usuario_perfil" EntityType="Self.tb_usuario_perfil" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__produtos___id_cl__5070F446" Association="Self.FK__produtos___id_cl__5070F446">
+            <End Role="tb_clientes" EntitySet="tb_clientes" />
+            <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__produtos___id_pr__4F7CD00D" Association="Self.FK__produtos___id_pr__4F7CD00D">
+            <End Role="tb_produtos" EntitySet="tb_produtos" />
+            <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_usuari__id_us__4BAC3F29" Association="Self.FK__tb_usuari__id_us__4BAC3F29">
+            <End Role="tb_usuario_perfil" EntitySet="tb_usuario_perfil" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FarmaciaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_clientes">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tx_nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="in_cpf" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_produtos_vendidos" Relationship="Self.FK__produtos___id_cl__5070F446" FromRole="tb_clientes" ToRole="tb_produtos_vendidos" />
+        </EntityType>
+        <EntityType Name="tb_produtos">
+          <Key>
+            <PropertyRef Name="id_produto" />
+          </Key>
+          <Property Name="id_produto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tx_nome_produto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fl_cronico" Type="Boolean" />
+          <Property Name="fl_alergenicos" Type="Boolean" />
+          <Property Name="img_produto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="valor_produto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="porcentagem_desconto_recorrente" Type="Int32" />
+          <Property Name="in_quantidade" Type="Int32" />
+          <Property Name="porcentagem_desconto_cronico" Type="Int32" />
+          <NavigationProperty Name="tb_produtos_vendidos" Relationship="Self.FK__produtos___id_pr__4F7CD00D" FromRole="tb_produtos" ToRole="tb_produtos_vendidos" />
+        </EntityType>
+        <EntityType Name="tb_produtos_vendidos">
+          <Key>
+            <PropertyRef Name="id_produto_vendido" />
+          </Key>
+          <Property Name="id_produto_vendido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_produto" Type="Int32" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="data_venda" Type="DateTime" Precision="3" />
+          <Property Name="in_quantidade_vendido" Type="Int32" />
+          <Property Name="valor_total" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="tb_clientes" Relationship="Self.FK__produtos___id_cl__5070F446" FromRole="tb_produtos_vendidos" ToRole="tb_clientes" />
+          <NavigationProperty Name="tb_produtos" Relationship="Self.FK__produtos___id_pr__4F7CD00D" FromRole="tb_produtos_vendidos" ToRole="tb_produtos" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario_perfil" Type="Int32" />
+          <Property Name="tx_nome" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="tx_cpf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tx_login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tx_senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_usuario_perfil" Relationship="Self.FK__tb_usuari__id_us__4BAC3F29" FromRole="tb_usuario" ToRole="tb_usuario_perfil" />
+        </EntityType>
+        <EntityType Name="tb_usuario_perfil">
+          <Key>
+            <PropertyRef Name="id_usuario_perfil" />
+          </Key>
+          <Property Name="id_usuario_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tx_tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.FK__tb_usuari__id_us__4BAC3F29" FromRole="tb_usuario_perfil" ToRole="tb_usuario" />
+        </EntityType>
+        <Association Name="FK__produtos___id_cl__5070F446">
+          <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="0..1" />
+          <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_clientes">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="tb_produtos_vendidos">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__produtos___id_pr__4F7CD00D">
+          <End Role="tb_produtos" Type="Self.tb_produtos" Multiplicity="0..1" />
+          <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produtos">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_produtos_vendidos">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_usuari__id_us__4BAC3F29">
+          <End Role="tb_usuario_perfil" Type="Self.tb_usuario_perfil" Multiplicity="0..1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario_perfil">
+              <PropertyRef Name="id_usuario_perfil" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="id_usuario_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FarmaciaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_clientes" EntityType="Self.tb_clientes" />
+          <EntitySet Name="tb_produtos" EntityType="Self.tb_produtos" />
+          <EntitySet Name="tb_produtos_vendidos" EntityType="Self.tb_produtos_vendidos" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" />
+          <EntitySet Name="tb_usuario_perfil" EntityType="Self.tb_usuario_perfil" />
+          <AssociationSet Name="FK__produtos___id_cl__5070F446" Association="Self.FK__produtos___id_cl__5070F446">
+            <End Role="tb_clientes" EntitySet="tb_clientes" />
+            <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__produtos___id_pr__4F7CD00D" Association="Self.FK__produtos___id_pr__4F7CD00D">
+            <End Role="tb_produtos" EntitySet="tb_produtos" />
+            <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_usuari__id_us__4BAC3F29" Association="Self.FK__tb_usuari__id_us__4BAC3F29">
+            <End Role="tb_usuario_perfil" EntitySet="tb_usuario_perfil" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FarmaciaModelStoreContainer" CdmEntityContainer="FarmaciaEntities">
+          <EntitySetMapping Name="tb_clientes">
+            <EntityTypeMapping TypeName="FarmaciaModel.tb_clientes">
+              <MappingFragment StoreEntitySet="tb_clientes">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="tx_nome" ColumnName="tx_nome" />
+                <ScalarProperty Name="in_cpf" ColumnName="in_cpf" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_produtos">
+            <EntityTypeMapping TypeName="FarmaciaModel.tb_produtos">
+              <MappingFragment StoreEntitySet="tb_produtos">
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+                <ScalarProperty Name="tx_nome_produto" ColumnName="tx_nome_produto" />
+                <ScalarProperty Name="fl_cronico" ColumnName="fl_cronico" />
+                <ScalarProperty Name="fl_alergenicos" ColumnName="fl_alergenicos" />
+                <ScalarProperty Name="img_produto" ColumnName="img_produto" />
+                <ScalarProperty Name="valor_produto" ColumnName="valor_produto" />
+                <ScalarProperty Name="porcentagem_desconto_recorrente" ColumnName="porcentagem_desconto_recorrente" />
+                <ScalarProperty Name="in_quantidade" ColumnName="in_quantidade" />
+                <ScalarProperty Name="porcentagem_desconto_cronico" ColumnName="porcentagem_desconto_cronico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_produtos_vendidos">
+            <EntityTypeMapping TypeName="FarmaciaModel.tb_produtos_vendidos">
+              <MappingFragment StoreEntitySet="tb_produtos_vendidos">
+                <ScalarProperty Name="id_produto_vendido" ColumnName="id_produto_vendido" />
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="data_venda" ColumnName="data_venda" />
+                <ScalarProperty Name="in_quantidade_vendido" ColumnName="in_quantidade_vendido" />
+                <ScalarProperty Name="valor_total" ColumnName="valor_total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_usuario">
+            <EntityTypeMapping TypeName="FarmaciaModel.tb_usuario">
+              <MappingFragment StoreEntitySet="tb_usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_usuario_perfil" ColumnName="id_usuario_perfil" />
+                <ScalarProperty Name="tx_nome" ColumnName="tx_nome" />
+                <ScalarProperty Name="tx_cpf" ColumnName="tx_cpf" />
+                <ScalarProperty Name="tx_login" ColumnName="tx_login" />
+                <ScalarProperty Name="tx_senha" ColumnName="tx_senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_usuario_perfil">
+            <EntityTypeMapping TypeName="FarmaciaModel.tb_usuario_perfil">
+              <MappingFragment StoreEntitySet="tb_usuario_perfil">
+                <ScalarProperty Name="id_usuario_perfil" ColumnName="id_usuario_perfil" />
+                <ScalarProperty Name="tx_tipo" ColumnName="tx_tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
