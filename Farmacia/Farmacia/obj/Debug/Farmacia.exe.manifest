@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Farmacia.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Farmacia.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Farmacia" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Farmacia.exe" size="120304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Farmacia.exe" size="121840">
       <assemblyIdentity name="Farmacia" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>z1AM7VKplGoReJAwgRXqzFhzK6ZjnquxVV2ViXRBqSo=</dsig:DigestValue>
+        <dsig:DigestValue>RWQ0xlLBfs976dajFS4ay3iCl+5pcOnQbuOBaeIfNRg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -95,13 +95,13 @@
       <dsig:DigestValue>CkHzRquU2NmHLZP7kBY8z/YbyG4DkfTmxhkIg5d1B5c=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Farmacia.exe.config" size="1536">
+  <file name="Farmacia.exe.config" size="1539">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>QCd35l3pTi9xxJRDBoyXTRNSUVIoanPbgNdnFHM4shs=</dsig:DigestValue>
+      <dsig:DigestValue>hqqZHlRHZJZfNu/KhGqr6XNo3gtw1QXnHTHZ+IPa5dc=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

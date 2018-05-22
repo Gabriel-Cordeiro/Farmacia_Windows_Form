@@ -9,10 +9,10 @@ namespace Farmacia.Classes
 {
    public  class clienteDAO
     {
-        public bool inserirCliente(tb_clientes objCliente)
+        public bool inserirCliente(tb_clientes_farmacia objCliente)
         {
             var db = new FarmaciaEntities();
-            db.tb_clientes.Add(objCliente);
+            db.tb_clientes_farmacia.Add(objCliente);
 
             #region .: db.SaveChanges :.
 
@@ -34,11 +34,11 @@ namespace Farmacia.Classes
             #endregion
         }
 
-        public bool atualizarCliente(tb_clientes objCliente)
+        public bool atualizarCliente(tb_clientes_farmacia objCliente)
         {
 
             var db = new FarmaciaEntities();
-            db.Entry<tb_clientes>(objCliente).State = System.Data.Entity.EntityState.Modified;
+            db.Entry<tb_clientes_farmacia>(objCliente).State = System.Data.Entity.EntityState.Modified;
 
             #region .: db.SaveChanges :.
 
@@ -60,19 +60,19 @@ namespace Farmacia.Classes
             #endregion
         }
 
-        public List<tb_clientes> pegarTodosClientes()
+        public List<tb_clientes_farmacia> pegarTodosClientes()
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_clientes.ToList().OrderBy(x => x.tx_nome).ToList();
+                return db.tb_clientes_farmacia.ToList().OrderBy(x => x.tx_nome).ToList();
             }
         }
 
-        public tb_clientes pegarClientePorCpf(decimal cpf)
+        public tb_clientes_farmacia pegarClientePorCpf(decimal cpf)
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_clientes.Where(x => x.in_cpf == cpf).FirstOrDefault();
+                return db.tb_clientes_farmacia.Where(x => x.in_cpf == cpf).FirstOrDefault();
             }
         }
 
@@ -80,7 +80,7 @@ namespace Farmacia.Classes
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_produtos_vendidos.Where(x => x.id_cliente == id_cliente && x.id_produto == id_produto).Count() > 0;
+                return db.tb_produtos_vendidos_farmacia.Where(x => x.id_cliente == id_cliente && x.id_produto == id_produto).Count() > 0;
             }
         }
     }

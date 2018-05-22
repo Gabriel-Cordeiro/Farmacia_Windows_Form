@@ -45,7 +45,7 @@ namespace Farmacia.Forms
         {
             if(!String.IsNullOrEmpty(txtNomeProduto.Text) && in_preco_produto.Value > 0 && in_quantidade_produto.Value > 0)
             {
-                tb_produtos novoProduto = new tb_produtos
+                tb_produtos_farmacia novoProduto = new tb_produtos_farmacia
                 {
                     tx_nome_produto = txtNomeProduto.Text,
                     img_produto = imagem_produto ?? null,

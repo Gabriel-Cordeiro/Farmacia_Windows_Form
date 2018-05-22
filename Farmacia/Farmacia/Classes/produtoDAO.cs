@@ -9,10 +9,10 @@ namespace Farmacia.Classes
 {
     public class produtoDAO
     {
-        public bool inserirProduto(tb_produtos objProduto)
+        public bool inserirProduto(tb_produtos_farmacia objProduto)
         {
             var db = new FarmaciaEntities();
-            db.tb_produtos.Add(objProduto);
+            db.tb_produtos_farmacia.Add(objProduto);
 
             #region .: db.SaveChanges :.
 
@@ -34,7 +34,7 @@ namespace Farmacia.Classes
             #endregion
         }
 
-        public bool atualizarProduto(tb_produtos objProduto)
+        public bool atualizarProduto(tb_produtos_farmacia objProduto)
         {
             var db = new FarmaciaEntities();
             db.Entry(objProduto).State = System.Data.Entity.EntityState.Modified;
@@ -59,26 +59,26 @@ namespace Farmacia.Classes
             #endregion
         }
 
-        public List<tb_produtos> pegarTodosProdutos()
+        public List<tb_produtos_farmacia> pegarTodosProdutos()
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_produtos.ToList().OrderBy(x => x.tx_nome_produto).ToList();
+                return db.tb_produtos_farmacia.ToList().OrderBy(x => x.tx_nome_produto).ToList();
             }
         }
 
-        public tb_produtos pegarProdutoPorCodigo(int codigo)
+        public tb_produtos_farmacia pegarProdutoPorCodigo(int codigo)
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_produtos.Where(x => x.id_produto == codigo).FirstOrDefault();
+                return db.tb_produtos_farmacia.Where(x => x.id_produto == codigo).FirstOrDefault();
             }
         }
 
-        public bool insertVenda(tb_produtos_vendidos objVenda)
+        public bool insertVenda(tb_produtos_vendidos_farmacia objVenda)
         {
             var db = new FarmaciaEntities();
-            db.tb_produtos_vendidos.Add(objVenda);
+            db.tb_produtos_vendidos_farmacia.Add(objVenda);
 
             #region .: db.SaveChanges :.
 
@@ -99,19 +99,19 @@ namespace Farmacia.Classes
             #endregion
         }
 
-        public List<tb_produtos> buscarProdutosPorNome(string nome_produto)
+        public List<tb_produtos_farmacia> buscarProdutosPorNome(string nome_produto)
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_produtos.Where(x => x.tx_nome_produto.Contains(nome_produto)).ToList();
+                return db.tb_produtos_farmacia.Where(x => x.tx_nome_produto.Contains(nome_produto)).ToList();
             }
         }
 
-        public List<tb_produtos> pegarProdutosMaisVendidos()
+        public List<tb_produtos_farmacia> pegarProdutosMaisVendidos()
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_produtos.Join(db.tb_produtos_vendidos, pro => pro.id_produto, prov => prov.id_produto, (pro, prov) => new { pro, prov })
+                return db.tb_produtos_farmacia.Join(db.tb_produtos_vendidos_farmacia, pro => pro.id_produto, prov => prov.id_produto, (pro, prov) => new { pro, prov })
                     .Where(pro => pro.pro.in_quantidade > 0)
                     .Select(pro => pro.pro).Distinct().Take(15).ToList();
             }

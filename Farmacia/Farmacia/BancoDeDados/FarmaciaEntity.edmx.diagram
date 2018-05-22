@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f144146a17464b1ea0500e9ee26c8b09" Name="Diagram1">
-        <EntityTypeShape EntityType="FarmaciaModel.tb_clientes" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="FarmaciaModel.tb_produtos" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FarmaciaModel.tb_produtos_vendidos" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FarmaciaModel.tb_usuario" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FarmaciaModel.tb_usuario_perfil" Width="1.5" PointX="2.75" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="FarmaciaModel.FK__produtos___id_cl__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="FarmaciaModel.FK__produtos___id_pr__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="FarmaciaModel.FK__tb_usuari__id_us__4BAC3F29" ManuallyRouted="false" />
+      <Diagram DiagramId="f144146a17464b1ea0500e9ee26c8b09" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="FarmaciaModel.tb_clientes_farmacia" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="FarmaciaModel.tb_produtos_farmacia" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="FarmaciaModel.tb_produtos_vendidos_farmacia" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="FarmaciaModel.tb_usuario_perfil_farmacia" Width="1.5" PointX="2.75" PointY="5.375" />
+        <EntityTypeShape EntityType="FarmaciaModel.tb_usuarios_farmacia" Width="1.5" PointX="5" PointY="5" />
+        <AssociationConnector Association="FarmaciaModel.FK__tb_produt__id_cl__68487DD7" />
+        <AssociationConnector Association="FarmaciaModel.FK__tb_produt__id_pr__6754599E" />
+        <AssociationConnector Association="FarmaciaModel.FK__tb_usuari__id_us__628FA481" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

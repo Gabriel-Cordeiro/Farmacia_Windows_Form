@@ -25,10 +25,10 @@ namespace Farmacia.BancoDeDados
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tb_clientes> tb_clientes { get; set; }
-        public virtual DbSet<tb_produtos> tb_produtos { get; set; }
-        public virtual DbSet<tb_produtos_vendidos> tb_produtos_vendidos { get; set; }
-        public virtual DbSet<tb_usuario> tb_usuario { get; set; }
-        public virtual DbSet<tb_usuario_perfil> tb_usuario_perfil { get; set; }
+        public virtual DbSet<tb_clientes_farmacia> tb_clientes_farmacia { get; set; }
+        public virtual DbSet<tb_produtos_farmacia> tb_produtos_farmacia { get; set; }
+        public virtual DbSet<tb_produtos_vendidos_farmacia> tb_produtos_vendidos_farmacia { get; set; }
+        public virtual DbSet<tb_usuario_perfil_farmacia> tb_usuario_perfil_farmacia { get; set; }
+        public virtual DbSet<tb_usuarios_farmacia> tb_usuarios_farmacia { get; set; }
     }
 }

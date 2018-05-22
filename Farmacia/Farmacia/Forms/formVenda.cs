@@ -16,14 +16,14 @@ namespace Farmacia.Forms
     {
         public decimal valorProduto;
         public int valorDescontoFinal;
-        tb_produtos objProduto = new tb_produtos();
-        tb_clientes clienteVenda = new tb_clientes();
+        tb_produtos_farmacia objProduto = new tb_produtos_farmacia();
+        tb_clientes_farmacia clienteVenda = new tb_clientes_farmacia();
         public formVenda()
         {
             InitializeComponent();
         }
 
-        public formVenda(tb_produtos produtoVender)
+        public formVenda(tb_produtos_farmacia produtoVender)
         {
             objProduto = produtoVender;
             InitializeComponent();
@@ -107,7 +107,7 @@ namespace Farmacia.Forms
             if (MessageBox.Show("Valor final:"+ txtPreco.Text +  " Deseja finalizar a venda ?", "Vender ?", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 produtoDAO produtodao = new produtoDAO();
-                tb_produtos_vendidos produtoVender = new tb_produtos_vendidos();
+                tb_produtos_vendidos_farmacia produtoVender = new tb_produtos_vendidos_farmacia();
 
                 produtoVender.data_venda = DateTime.Now;
                 produtoVender.id_cliente = clienteVenda.id_cliente;

@@ -23,7 +23,7 @@ namespace Farmacia.Forms
         {
             if (!string.IsNullOrEmpty(txtNome.Text) && nmCpf.Value != 0 && !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtTelefone.Text))
             {
-                tb_clientes novoCliente = new tb_clientes
+                tb_clientes_farmacia novoCliente = new tb_clientes_farmacia
                 {
                     tx_nome = txtNome.Text,
                     in_cpf = Convert.ToDecimal(nmCpf.Value),

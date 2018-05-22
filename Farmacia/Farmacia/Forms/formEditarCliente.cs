@@ -19,7 +19,7 @@ namespace Farmacia.Forms
             InitializeComponent();
         }
 
-        public formEditarCliente(tb_clientes objCliente)
+        public formEditarCliente(tb_clientes_farmacia objCliente)
         {
             InitializeComponent();
 
@@ -38,7 +38,7 @@ namespace Farmacia.Forms
         {
             if (!string.IsNullOrEmpty(txtNome.Text) && nmCpf.Value != 0 && !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtTelefone.Text))
             {
-                tb_clientes novoCliente = new tb_clientes
+                tb_clientes_farmacia novoCliente = new tb_clientes_farmacia
                 {
                     id_cliente = Convert.ToInt32(txtCodigoCliente.Text),
                     tx_nome = txtNome.Text,

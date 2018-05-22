@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\gabriel.cordeiro\Desktop\Docs gabriel\unasp 2018\Projeto Integrador\Farmacia\Farmacia\Farmacia\BancoDeDados\FarmaciaEntity.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\BancoDeDados\FarmaciaEntity.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

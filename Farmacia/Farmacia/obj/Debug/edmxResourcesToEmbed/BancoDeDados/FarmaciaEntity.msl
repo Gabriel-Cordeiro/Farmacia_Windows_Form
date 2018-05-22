@@ -1,65 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FarmaciaModelStoreContainer" CdmEntityContainer="FarmaciaEntities">
-    <EntitySetMapping Name="tb_clientes">
-      <EntityTypeMapping TypeName="FarmaciaModel.tb_clientes">
-        <MappingFragment StoreEntitySet="tb_clientes">
-          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="tx_nome" ColumnName="tx_nome" />
-          <ScalarProperty Name="in_cpf" ColumnName="in_cpf" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="telefone" ColumnName="telefone" />
-          <ScalarProperty Name="endereco" ColumnName="endereco" />
-          <ScalarProperty Name="cep" ColumnName="cep" />
-          <ScalarProperty Name="bairro" ColumnName="bairro" />
+    <EntitySetMapping Name="tb_clientes_farmacia">
+      <EntityTypeMapping TypeName="FarmaciaModel.tb_clientes_farmacia">
+        <MappingFragment StoreEntitySet="tb_clientes_farmacia">
           <ScalarProperty Name="cidade" ColumnName="cidade" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tb_produtos">
-      <EntityTypeMapping TypeName="FarmaciaModel.tb_produtos">
-        <MappingFragment StoreEntitySet="tb_produtos">
-          <ScalarProperty Name="id_produto" ColumnName="id_produto" />
-          <ScalarProperty Name="tx_nome_produto" ColumnName="tx_nome_produto" />
-          <ScalarProperty Name="fl_cronico" ColumnName="fl_cronico" />
-          <ScalarProperty Name="fl_alergenicos" ColumnName="fl_alergenicos" />
-          <ScalarProperty Name="img_produto" ColumnName="img_produto" />
-          <ScalarProperty Name="valor_produto" ColumnName="valor_produto" />
-          <ScalarProperty Name="porcentagem_desconto_recorrente" ColumnName="porcentagem_desconto_recorrente" />
-          <ScalarProperty Name="in_quantidade" ColumnName="in_quantidade" />
-          <ScalarProperty Name="porcentagem_desconto_cronico" ColumnName="porcentagem_desconto_cronico" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tb_produtos_vendidos">
-      <EntityTypeMapping TypeName="FarmaciaModel.tb_produtos_vendidos">
-        <MappingFragment StoreEntitySet="tb_produtos_vendidos">
-          <ScalarProperty Name="id_produto_vendido" ColumnName="id_produto_vendido" />
-          <ScalarProperty Name="id_produto" ColumnName="id_produto" />
-          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="data_venda" ColumnName="data_venda" />
-          <ScalarProperty Name="in_quantidade_vendido" ColumnName="in_quantidade_vendido" />
-          <ScalarProperty Name="valor_total" ColumnName="valor_total" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tb_usuario">
-      <EntityTypeMapping TypeName="FarmaciaModel.tb_usuario">
-        <MappingFragment StoreEntitySet="tb_usuario">
-          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-          <ScalarProperty Name="id_usuario_perfil" ColumnName="id_usuario_perfil" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="in_cpf" ColumnName="in_cpf" />
           <ScalarProperty Name="tx_nome" ColumnName="tx_nome" />
-          <ScalarProperty Name="tx_cpf" ColumnName="tx_cpf" />
-          <ScalarProperty Name="tx_login" ColumnName="tx_login" />
-          <ScalarProperty Name="tx_senha" ColumnName="tx_senha" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tb_usuario_perfil">
-      <EntityTypeMapping TypeName="FarmaciaModel.tb_usuario_perfil">
-        <MappingFragment StoreEntitySet="tb_usuario_perfil">
-          <ScalarProperty Name="id_usuario_perfil" ColumnName="id_usuario_perfil" />
+    <EntitySetMapping Name="tb_produtos_farmacia">
+      <EntityTypeMapping TypeName="FarmaciaModel.tb_produtos_farmacia">
+        <MappingFragment StoreEntitySet="tb_produtos_farmacia">
+          <ScalarProperty Name="porcentagem_desconto_cronico" ColumnName="porcentagem_desconto_cronico" />
+          <ScalarProperty Name="in_quantidade" ColumnName="in_quantidade" />
+          <ScalarProperty Name="porcentagem_desconto_recorrente" ColumnName="porcentagem_desconto_recorrente" />
+          <ScalarProperty Name="valor_produto" ColumnName="valor_produto" />
+          <ScalarProperty Name="img_produto" ColumnName="img_produto" />
+          <ScalarProperty Name="fl_alergenicos" ColumnName="fl_alergenicos" />
+          <ScalarProperty Name="fl_cronico" ColumnName="fl_cronico" />
+          <ScalarProperty Name="tx_nome_produto" ColumnName="tx_nome_produto" />
+          <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_produtos_vendidos_farmacia">
+      <EntityTypeMapping TypeName="FarmaciaModel.tb_produtos_vendidos_farmacia">
+        <MappingFragment StoreEntitySet="tb_produtos_vendidos_farmacia">
+          <ScalarProperty Name="valor_total" ColumnName="valor_total" />
+          <ScalarProperty Name="in_quantidade_vendido" ColumnName="in_quantidade_vendido" />
+          <ScalarProperty Name="data_venda" ColumnName="data_venda" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+          <ScalarProperty Name="id_produto_vendido" ColumnName="id_produto_vendido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario_perfil_farmacia">
+      <EntityTypeMapping TypeName="FarmaciaModel.tb_usuario_perfil_farmacia">
+        <MappingFragment StoreEntitySet="tb_usuario_perfil_farmacia">
           <ScalarProperty Name="tx_tipo" ColumnName="tx_tipo" />
+          <ScalarProperty Name="id_usuario_perfil" ColumnName="id_usuario_perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuarios_farmacia">
+      <EntityTypeMapping TypeName="FarmaciaModel.tb_usuarios_farmacia">
+        <MappingFragment StoreEntitySet="tb_usuarios_farmacia">
+          <ScalarProperty Name="tx_senha" ColumnName="tx_senha" />
+          <ScalarProperty Name="tx_login" ColumnName="tx_login" />
+          <ScalarProperty Name="tx_cpf" ColumnName="tx_cpf" />
+          <ScalarProperty Name="tx_nome" ColumnName="tx_nome" />
+          <ScalarProperty Name="id_usuario_perfil" ColumnName="id_usuario_perfil" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

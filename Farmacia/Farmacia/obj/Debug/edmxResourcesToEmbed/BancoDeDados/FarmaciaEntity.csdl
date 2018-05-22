@@ -1,36 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="FarmaciaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="tb_clientes">
+  <EntityContainer Name="FarmaciaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_clientes_farmacia" EntityType="FarmaciaModel.tb_clientes_farmacia" />
+    <EntitySet Name="tb_produtos_farmacia" EntityType="FarmaciaModel.tb_produtos_farmacia" />
+    <EntitySet Name="tb_produtos_vendidos_farmacia" EntityType="FarmaciaModel.tb_produtos_vendidos_farmacia" />
+    <EntitySet Name="tb_usuario_perfil_farmacia" EntityType="FarmaciaModel.tb_usuario_perfil_farmacia" />
+    <EntitySet Name="tb_usuarios_farmacia" EntityType="FarmaciaModel.tb_usuarios_farmacia" />
+    <AssociationSet Name="FK__tb_produt__id_cl__68487DD7" Association="FarmaciaModel.FK__tb_produt__id_cl__68487DD7">
+      <End Role="tb_clientes_farmacia" EntitySet="tb_clientes_farmacia" />
+      <End Role="tb_produtos_vendidos_farmacia" EntitySet="tb_produtos_vendidos_farmacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_produt__id_pr__6754599E" Association="FarmaciaModel.FK__tb_produt__id_pr__6754599E">
+      <End Role="tb_produtos_farmacia" EntitySet="tb_produtos_farmacia" />
+      <End Role="tb_produtos_vendidos_farmacia" EntitySet="tb_produtos_vendidos_farmacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_usuari__id_us__628FA481" Association="FarmaciaModel.FK__tb_usuari__id_us__628FA481">
+      <End Role="tb_usuario_perfil_farmacia" EntitySet="tb_usuario_perfil_farmacia" />
+      <End Role="tb_usuarios_farmacia" EntitySet="tb_usuarios_farmacia" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tb_clientes_farmacia">
     <Key>
       <PropertyRef Name="id_cliente" />
     </Key>
     <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tx_nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tx_nome" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
     <Property Name="in_cpf" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="cep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="bairro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tb_produtos_vendidos" Relationship="Self.FK__produtos___id_cl__5070F446" FromRole="tb_clientes" ToRole="tb_produtos_vendidos" />
+    <Property Name="email" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_produtos_vendidos_farmacia" Relationship="FarmaciaModel.FK__tb_produt__id_cl__68487DD7" FromRole="tb_clientes_farmacia" ToRole="tb_produtos_vendidos_farmacia" />
   </EntityType>
-  <EntityType Name="tb_produtos">
+  <EntityType Name="tb_produtos_farmacia">
     <Key>
       <PropertyRef Name="id_produto" />
     </Key>
     <Property Name="id_produto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tx_nome_produto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tx_nome_produto" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
     <Property Name="fl_cronico" Type="Boolean" />
     <Property Name="fl_alergenicos" Type="Boolean" />
-    <Property Name="img_produto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="img_produto" Type="Binary" MaxLength="1" FixedLength="true" />
     <Property Name="valor_produto" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="porcentagem_desconto_recorrente" Type="Int32" />
     <Property Name="in_quantidade" Type="Int32" />
     <Property Name="porcentagem_desconto_cronico" Type="Int32" />
-    <NavigationProperty Name="tb_produtos_vendidos" Relationship="Self.FK__produtos___id_pr__4F7CD00D" FromRole="tb_produtos" ToRole="tb_produtos_vendidos" />
+    <NavigationProperty Name="tb_produtos_vendidos_farmacia" Relationship="FarmaciaModel.FK__tb_produt__id_pr__6754599E" FromRole="tb_produtos_farmacia" ToRole="tb_produtos_vendidos_farmacia" />
   </EntityType>
-  <EntityType Name="tb_produtos_vendidos">
+  <EntityType Name="tb_produtos_vendidos_farmacia">
     <Key>
       <PropertyRef Name="id_produto_vendido" />
     </Key>
@@ -40,82 +59,63 @@
     <Property Name="data_venda" Type="DateTime" Precision="3" />
     <Property Name="in_quantidade_vendido" Type="Int32" />
     <Property Name="valor_total" Type="Decimal" Precision="18" Scale="0" />
-    <NavigationProperty Name="tb_clientes" Relationship="Self.FK__produtos___id_cl__5070F446" FromRole="tb_produtos_vendidos" ToRole="tb_clientes" />
-    <NavigationProperty Name="tb_produtos" Relationship="Self.FK__produtos___id_pr__4F7CD00D" FromRole="tb_produtos_vendidos" ToRole="tb_produtos" />
+    <NavigationProperty Name="tb_clientes_farmacia" Relationship="FarmaciaModel.FK__tb_produt__id_cl__68487DD7" FromRole="tb_produtos_vendidos_farmacia" ToRole="tb_clientes_farmacia" />
+    <NavigationProperty Name="tb_produtos_farmacia" Relationship="FarmaciaModel.FK__tb_produt__id_pr__6754599E" FromRole="tb_produtos_vendidos_farmacia" ToRole="tb_produtos_farmacia" />
   </EntityType>
-  <EntityType Name="tb_usuario">
+  <EntityType Name="tb_usuario_perfil_farmacia">
+    <Key>
+      <PropertyRef Name="id_usuario_perfil" />
+    </Key>
+    <Property Name="id_usuario_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tx_tipo" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_usuarios_farmacia" Relationship="FarmaciaModel.FK__tb_usuari__id_us__628FA481" FromRole="tb_usuario_perfil_farmacia" ToRole="tb_usuarios_farmacia" />
+  </EntityType>
+  <EntityType Name="tb_usuarios_farmacia">
     <Key>
       <PropertyRef Name="id_usuario" />
     </Key>
     <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_usuario_perfil" Type="Int32" />
-    <Property Name="tx_nome" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="tx_cpf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="tx_login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="tx_senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tb_usuario_perfil" Relationship="Self.FK__tb_usuari__id_us__4BAC3F29" FromRole="tb_usuario" ToRole="tb_usuario_perfil" />
+    <Property Name="tx_nome" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="tx_cpf" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="tx_login" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="tx_senha" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_usuario_perfil_farmacia" Relationship="FarmaciaModel.FK__tb_usuari__id_us__628FA481" FromRole="tb_usuarios_farmacia" ToRole="tb_usuario_perfil_farmacia" />
   </EntityType>
-  <EntityType Name="tb_usuario_perfil">
-    <Key>
-      <PropertyRef Name="id_usuario_perfil" />
-    </Key>
-    <Property Name="id_usuario_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tx_tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tb_usuario" Relationship="Self.FK__tb_usuari__id_us__4BAC3F29" FromRole="tb_usuario_perfil" ToRole="tb_usuario" />
-  </EntityType>
-  <Association Name="FK__produtos___id_cl__5070F446">
-    <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="0..1" />
-    <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+  <Association Name="FK__tb_produt__id_cl__68487DD7">
+    <End Type="FarmaciaModel.tb_clientes_farmacia" Role="tb_clientes_farmacia" Multiplicity="0..1" />
+    <End Type="FarmaciaModel.tb_produtos_vendidos_farmacia" Role="tb_produtos_vendidos_farmacia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tb_clientes">
+      <Principal Role="tb_clientes_farmacia">
         <PropertyRef Name="id_cliente" />
       </Principal>
-      <Dependent Role="tb_produtos_vendidos">
+      <Dependent Role="tb_produtos_vendidos_farmacia">
         <PropertyRef Name="id_cliente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__produtos___id_pr__4F7CD00D">
-    <End Role="tb_produtos" Type="Self.tb_produtos" Multiplicity="0..1" />
-    <End Role="tb_produtos_vendidos" Type="Self.tb_produtos_vendidos" Multiplicity="*" />
+  <Association Name="FK__tb_produt__id_pr__6754599E">
+    <End Type="FarmaciaModel.tb_produtos_farmacia" Role="tb_produtos_farmacia" Multiplicity="0..1" />
+    <End Type="FarmaciaModel.tb_produtos_vendidos_farmacia" Role="tb_produtos_vendidos_farmacia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tb_produtos">
+      <Principal Role="tb_produtos_farmacia">
         <PropertyRef Name="id_produto" />
       </Principal>
-      <Dependent Role="tb_produtos_vendidos">
+      <Dependent Role="tb_produtos_vendidos_farmacia">
         <PropertyRef Name="id_produto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tb_usuari__id_us__4BAC3F29">
-    <End Role="tb_usuario_perfil" Type="Self.tb_usuario_perfil" Multiplicity="0..1" />
-    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+  <Association Name="FK__tb_usuari__id_us__628FA481">
+    <End Type="FarmaciaModel.tb_usuario_perfil_farmacia" Role="tb_usuario_perfil_farmacia" Multiplicity="0..1" />
+    <End Type="FarmaciaModel.tb_usuarios_farmacia" Role="tb_usuarios_farmacia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tb_usuario_perfil">
+      <Principal Role="tb_usuario_perfil_farmacia">
         <PropertyRef Name="id_usuario_perfil" />
       </Principal>
-      <Dependent Role="tb_usuario">
+      <Dependent Role="tb_usuarios_farmacia">
         <PropertyRef Name="id_usuario_perfil" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="FarmaciaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="tb_clientes" EntityType="Self.tb_clientes" />
-    <EntitySet Name="tb_produtos" EntityType="Self.tb_produtos" />
-    <EntitySet Name="tb_produtos_vendidos" EntityType="Self.tb_produtos_vendidos" />
-    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" />
-    <EntitySet Name="tb_usuario_perfil" EntityType="Self.tb_usuario_perfil" />
-    <AssociationSet Name="FK__produtos___id_cl__5070F446" Association="Self.FK__produtos___id_cl__5070F446">
-      <End Role="tb_clientes" EntitySet="tb_clientes" />
-      <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
-    </AssociationSet>
-    <AssociationSet Name="FK__produtos___id_pr__4F7CD00D" Association="Self.FK__produtos___id_pr__4F7CD00D">
-      <End Role="tb_produtos" EntitySet="tb_produtos" />
-      <End Role="tb_produtos_vendidos" EntitySet="tb_produtos_vendidos" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tb_usuari__id_us__4BAC3F29" Association="Self.FK__tb_usuari__id_us__4BAC3F29">
-      <End Role="tb_usuario_perfil" EntitySet="tb_usuario_perfil" />
-      <End Role="tb_usuario" EntitySet="tb_usuario" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

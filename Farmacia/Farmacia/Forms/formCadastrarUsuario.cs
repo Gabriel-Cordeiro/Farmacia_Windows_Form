@@ -26,7 +26,7 @@ namespace Farmacia.Forms
                 var tipoPerfil = cbTipoUsuario.SelectedItem.ToString() == "Estoquista"? 3 
                                : cbTipoUsuario.SelectedItem.ToString() == "Atendente" ? 2 : 1;
 
-                tb_usuario novoUsuario = new tb_usuario
+                tb_usuarios_farmacia novoUsuario = new  tb_usuarios_farmacia
                 {
 
                     tx_nome = txtNome.Text.ToString(),

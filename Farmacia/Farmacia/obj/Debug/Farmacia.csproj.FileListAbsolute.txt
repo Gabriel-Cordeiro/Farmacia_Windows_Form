@@ -26,3 +26,32 @@ C:\Users\gabriel.cordeiro\Desktop\Docs gabriel\unasp 2018\Projeto Integrador\Far
 C:\Users\gabriel.cordeiro\Desktop\Docs gabriel\unasp 2018\Projeto Integrador\Farmacia\Farmacia\Farmacia\bin\Debug\Farmacia.application
 C:\Users\gabriel.cordeiro\Desktop\Docs gabriel\unasp 2018\Projeto Integrador\Farmacia\Farmacia\Farmacia\obj\Debug\Farmacia.exe.manifest
 C:\Users\gabriel.cordeiro\Desktop\Docs gabriel\unasp 2018\Projeto Integrador\Farmacia\Farmacia\Farmacia\obj\Debug\Farmacia.application
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\Farmacia.exe.config
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\Farmacia.exe.manifest
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\Farmacia.application
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\Farmacia.exe
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\Farmacia.pdb
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\EntityFramework.dll
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\EntityFramework.xml
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.csprojResolveAssemblyReference.cache
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formCadastrarCliente.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formCadastrarUsuario.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formClientes.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formEditarCliente.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formEditarProduto.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formEstoque.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formLstProdutos.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formNovoProduto.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formPrincipal.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Forms.formVenda.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Login.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.Properties.Resources.resources
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.csproj.GenerateResource.Cache
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.csproj.CoreCompileInputs.cache
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.exe.manifest
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.application
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.exe
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.pdb
+C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Farmacia\Farmacia\obj\Debug\Farmacia.csproj.CopyComplete

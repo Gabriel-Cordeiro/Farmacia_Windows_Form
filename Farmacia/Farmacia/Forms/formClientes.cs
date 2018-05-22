@@ -15,8 +15,8 @@ namespace Farmacia.Forms
     public partial class formClientes : Form
     {
         clienteDAO clientedao = new clienteDAO();
-        tb_clientes clienteEscolhido = new tb_clientes();
-        List<tb_clientes> lstCliente = new List<tb_clientes>();
+        tb_clientes_farmacia clienteEscolhido = new tb_clientes_farmacia();
+        List<tb_clientes_farmacia> lstCliente = new List<tb_clientes_farmacia>();
         public formClientes()
         {
             InitializeComponent();

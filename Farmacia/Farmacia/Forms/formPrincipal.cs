@@ -14,7 +14,7 @@ namespace Farmacia.Forms
 {
     public partial class formPrincipal : Form
     {
-        public List<tb_produtos> listaProdutos;
+        public List<tb_produtos_farmacia> listaProdutos;
         public formPrincipal()
         {
 
@@ -115,7 +115,7 @@ namespace Farmacia.Forms
 
         }
 
-        public void montaProdutosIniciais(List<tb_produtos> lstProdutos)
+        public void montaProdutosIniciais(List<tb_produtos_farmacia> lstProdutos)
         {
 
 

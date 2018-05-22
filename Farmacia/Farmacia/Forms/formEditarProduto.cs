@@ -21,7 +21,7 @@ namespace Farmacia.Forms
             InitializeComponent();
         }
 
-        public formEditarProduto(tb_produtos objProduto)
+        public formEditarProduto(tb_produtos_farmacia objProduto)
         {
             InitializeComponent();
 
@@ -55,7 +55,7 @@ namespace Farmacia.Forms
         {
             if (!String.IsNullOrEmpty(txtNomeProduto.Text) && in_preco_produto.Value > 0 && in_quantidade_produto.Value > 0)
             {
-                tb_produtos novoProduto = new tb_produtos
+                tb_produtos_farmacia novoProduto = new tb_produtos_farmacia
                 {
                     id_produto =Convert.ToInt32(txtCodigo.Text),
                     tx_nome_produto = txtNomeProduto.Text,

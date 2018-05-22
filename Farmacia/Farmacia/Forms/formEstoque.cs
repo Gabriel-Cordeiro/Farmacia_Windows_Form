@@ -15,8 +15,8 @@ namespace Farmacia.Forms
     public partial class formEstoque : Form
     {
         produtoDAO produtodao = new produtoDAO();
-        tb_produtos produtoEscolhido = new tb_produtos();
-        List<tb_produtos> lstProdutos = new List<tb_produtos>();
+        tb_produtos_farmacia produtoEscolhido = new tb_produtos_farmacia();
+        List<tb_produtos_farmacia> lstProdutos = new List<tb_produtos_farmacia>();
         public formEstoque()
         {
             InitializeComponent();

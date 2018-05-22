@@ -16,7 +16,7 @@ namespace Farmacia.Forms
     {
 
         produtoDAO produtodao = new produtoDAO();
-        List<tb_produtos> lstProdutos = new List<tb_produtos>();
+        List<tb_produtos_farmacia> lstProdutos = new List<tb_produtos_farmacia>();
         public formLstProdutos()
         {
             InitializeComponent();
@@ -36,6 +36,11 @@ namespace Farmacia.Forms
                 dtViewProdutos.Rows[i].Cells[7].Value = lstProdutos[i].porcentagem_desconto_cronico.ToString() + "%";
 
             }
+
+        }
+
+        private void formLstProdutos_Load(object sender, EventArgs e)
+        {
 
         }
     }

@@ -112,6 +112,7 @@
             this.MaximizeBox = false;
             this.Name = "formLstProdutos";
             this.Text = "formLstProdutos";
+            this.Load += new System.EventHandler(this.formLstProdutos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtViewProdutos)).EndInit();
             this.ResumeLayout(false);
 

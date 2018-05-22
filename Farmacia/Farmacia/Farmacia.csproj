@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\gabriel.cordeiro\Desktop\Docs gabriel\unasp 2018\Projeto Integrador\Farmacia\Instalador\</PublishUrl>
+    <PublishUrl>C:\Users\gabriel.cordeiro\Documents\GitHub\Farmacia_Windows_Form\Instalador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -98,19 +98,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmaciaEntity.edmx</DependentUpon>
     </Compile>
-    <Compile Include="BancoDeDados\tb_clientes.cs">
+    <Compile Include="BancoDeDados\tb_clientes_farmacia.cs">
       <DependentUpon>FarmaciaEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="BancoDeDados\tb_produtos.cs">
+    <Compile Include="BancoDeDados\tb_produtos_farmacia.cs">
       <DependentUpon>FarmaciaEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="BancoDeDados\tb_produtos_vendidos.cs">
+    <Compile Include="BancoDeDados\tb_produtos_vendidos_farmacia.cs">
       <DependentUpon>FarmaciaEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="BancoDeDados\tb_usuario.cs">
+    <Compile Include="BancoDeDados\tb_usuarios_farmacia.cs">
       <DependentUpon>FarmaciaEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="BancoDeDados\tb_usuario_perfil.cs">
+    <Compile Include="BancoDeDados\tb_usuario_perfil_farmacia.cs">
       <DependentUpon>FarmaciaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\auxiliar.cs" />

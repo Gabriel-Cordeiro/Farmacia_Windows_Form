@@ -12,18 +12,18 @@ namespace Farmacia.Classes
 {
     public class usuarioDAO
     {
-        public tb_usuario verificarLogin(string login, string senha)
+        public tb_usuarios_farmacia verificarLogin(string login, string senha)
         {
             using (var db = new FarmaciaEntities())
             {
-                return db.tb_usuario.Where(x => x.tx_login == login && x.tx_senha == senha).FirstOrDefault();
+                return db.tb_usuarios_farmacia.Where(x => x.tx_login == login && x.tx_senha == senha).FirstOrDefault();
             }
         }
 
-        public bool inserirUsuario(tb_usuario objUsuario)
+        public bool inserirUsuario(tb_usuarios_farmacia objUsuario)
         {
             var db = new FarmaciaEntities();
-            db.tb_usuario.Add(objUsuario);
+            db.tb_usuarios_farmacia.Add(objUsuario);
 
             #region .: db.SaveChanges :.
 
